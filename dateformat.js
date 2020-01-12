@@ -62,8 +62,18 @@
   let str = "sdfs1fdsf2sdf3";
   let any = ['零', '一', '二', '三'];
   //arguments：匹配的字符，index，所有字符
-  str = str.replace(/\d/g, function(){
+  str = str.replace(/\d/g, function () {
     return any[arguments[0]];
   })
+
+  // 转为驼峰式名称
+  function cssStyle2DomStyle(sName) {
+    // (?!^)反向引用,去除第一个字符串开头的 
+    return sName.replace(/(?!^)\-(\w)(\w+)/g, function (a, b, c) {
+      return b.toUpperCase() + c.toLowerCase();
+    }).replace(/^\-/, '');
+  }
+
+  cssStyle2DomStyle('back-ground-color');
 
 }

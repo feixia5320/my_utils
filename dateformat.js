@@ -1,3 +1,5 @@
+const { get } = require("lodash");
+
 /**
  * 日期格式化
  * 正则表达式
@@ -75,5 +77,49 @@
   }
 
   cssStyle2DomStyle('back-ground-color');
+
+}
+/**
+ * 嵌套数组展开，扁平化
+ */
+{
+  var arr = [1, [[2, 3], 4], [5, 6]];
+
+  var flat = function* (a) {
+    var length = a.length;
+    for (var i = 0; i < length; i++) {
+      var item = a[i];
+      if (typeof item !== 'number') {
+        yield* flat(item);
+      } else {
+        yield item;
+      }
+    }
+  };
+  let res = [];
+  for (var f of flat(arr)) {
+    res.push(f);
+  }
+  console.log(res);
+// 1, 2, 3, 4, 5, 6
+
+/**
+ * 普通方法
+ */
+  var arro = [1, [[2, 3], 4], [5, 6]];
+
+  function getdata(arr) {
+    let res = [];
+    for (let i = 0; i < arr.length; i++) {
+      const item = arr[i];
+      if (typeof item  == "number") {
+        res.push(item)
+      } else {
+        res = [...res, ...getdata(item)]
+      }
+    }
+    return res;
+  }
+  console.log(getdata(arro))
 
 }

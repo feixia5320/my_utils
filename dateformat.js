@@ -14,19 +14,27 @@ const { get } = require("lodash");
       "m+": this.getMinutes(), //分
       "s+": this.getSeconds(), //秒
       "q+": Math.floor((this.getMonth() + 3) / 3), //季度
-      "S": this.getMilliseconds() //毫秒
+      S: this.getMilliseconds(), //毫秒
     };
     // RegExp.$1
     if (/(y+)/.test(str)) {
-      str = str.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+      str = str.replace(
+        RegExp.$1,
+        (this.getFullYear() + "").substr(4 - RegExp.$1.length)
+      );
     }
     for (var k in o) {
       if (new RegExp("(" + k + ")").test(str)) {
-        str = str.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        str = str.replace(
+          RegExp.$1,
+          RegExp.$1.length == 1
+            ? o[k]
+            : ("00" + o[k]).substr(("" + o[k]).length)
+        );
       }
     }
     return str;
-  }
+  };
   //使用方法2
   // let a = new Date()
   // let b = format.call(a,'yyyy:M-d')
@@ -46,38 +54,39 @@ const { get } = require("lodash");
       H: t.getHours(),
       HH: ("0" + t.getHours()).slice(-2),
       h: t.getHours() % 12,
-      hh: ("0" + t.getHours() % 12).slice(-2),
+      hh: ("0" + (t.getHours() % 12)).slice(-2),
       m: t.getMinutes(),
       mm: ("0" + t.getMinutes()).slice(-2),
       s: t.getSeconds(),
       ss: ("0" + t.getSeconds()).slice(-2),
-      w: ['日', '一', '二', '三', '四', '五', '六'][t.getDay()]
+      w: ["日", "一", "二", "三", "四", "五", "六"][t.getDay()],
     };
-    return str.replace(/([a-z]+)/ig, function ($1) {
+    return str.replace(/([a-z]+)/gi, function ($1) {
       // $1
-      return obj[$1]
+      return obj[$1];
     });
   }
-  let s = formatDate(new Date(1409894060000), 'yyyy-MM-dd HH:mm:ss 星期w')
+  let s = formatDate(new Date(1409894060000), "yyyy-MM-dd HH:mm:ss 星期w");
 
   // 数字转为大写
   let str = "sdfs1fdsf2sdf3";
-  let any = ['零', '一', '二', '三'];
+  let any = ["零", "一", "二", "三"];
   //arguments：匹配的字符，index，所有字符
   str = str.replace(/\d/g, function () {
     return any[arguments[0]];
-  })
+  });
 
   // 转为驼峰式名称
   function cssStyle2DomStyle(sName) {
-    // (?!^)反向引用,去除第一个字符串开头的 
-    return sName.replace(/(?!^)\-(\w)(\w+)/g, function (a, b, c) {
-      return b.toUpperCase() + c.toLowerCase();
-    }).replace(/^\-/, '');
+    // (?!^)反向引用,去除第一个字符串开头的
+    return sName
+      .replace(/(?!^)\-(\w)(\w+)/g, function (a, b, c) {
+        return b.toUpperCase() + c.toLowerCase();
+      })
+      .replace(/^\-/, "");
   }
 
-  cssStyle2DomStyle('back-ground-color');
-
+  cssStyle2DomStyle("back-ground-color");
 }
 /**
  * 嵌套数组展开，扁平化
@@ -89,7 +98,7 @@ const { get } = require("lodash");
     var length = a.length;
     for (var i = 0; i < length; i++) {
       var item = a[i];
-      if (typeof item !== 'number') {
+      if (typeof item !== "number") {
         yield* flat(item);
       } else {
         yield item;
@@ -101,25 +110,55 @@ const { get } = require("lodash");
     res.push(f);
   }
   console.log(res);
-// 1, 2, 3, 4, 5, 6
+  // 1, 2, 3, 4, 5, 6
 
-/**
- * 普通方法
- */
+  /**
+   * 普通方法
+   */
   var arro = [1, [[2, 3], 4], [5, 6]];
 
   function getdata(arr) {
     let res = [];
     for (let i = 0; i < arr.length; i++) {
       const item = arr[i];
-      if (typeof item  == "number") {
-        res.push(item)
+      if (typeof item == "number") {
+        res.push(item);
       } else {
-        res = [...res, ...getdata(item)]
+        res = [...res, ...getdata(item)];
       }
     }
     return res;
   }
-  console.log(getdata(arro))
+  console.log(getdata(arro));
+}
+/**
+ * 斐波那契数列
+ */
+{
+  function* fibonacci() {
+    let [prev, curr] = [0, 1];
+    for (;;) {
+      yield curr;
+      [prev, curr] = [curr, prev + curr];
+    }
+  }
 
+  for (let n of fibonacci()) {
+    if (n > 1000) break;
+    console.log(n);
+  }
+  /**
+   * 普通方法
+   */
+  function ff({ a, b }) {
+    return {
+      a: b,
+      b: a + b,
+    };
+  }
+  let arr = { a: 0, b: 1 };
+  for (let i = 0; i < 10; i++) {
+    arr = ff(arr);
+    console.log(arr);
+  }
 }

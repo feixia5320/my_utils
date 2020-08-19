@@ -1,7 +1,7 @@
 
-5.¶ÔÏó¿ËÂ¡¡¢Éî¿½±´
+5.å¯¹è±¡å…‹éš†ã€æ·±æ‹·è´
 /**
- * ¶ÔÏó¿ËÂ¡&Éî¿½±´
+ * å¯¹è±¡å…‹éš†&æ·±æ‹·è´
  * @param obj
  * @returns {{}}
  */
@@ -37,11 +37,11 @@ function cloneObj(obj) {
   }
   return newO;
 };
-¸´ÖÆ´úÂë
-¿ËÂ¡¿½±´ÔöÇ¿°æ
+å¤åˆ¶ä»£ç 
+å…‹éš†æ‹·è´å¢å¼ºç‰ˆ
 
 /**
- * ¶ÔÏó¿ËÂ¡&Éî¿½±´
+ * å¯¹è±¡å…‹éš†&æ·±æ‹·è´
  * @param obj
  * @returns {{}}
  */
@@ -72,8 +72,8 @@ function clone(obj) {
   }
   throw new Error("Unable to copy obj! Its type isn't supported.");
 }
-¸´ÖÆ´úÂë
-²âÊÔÓÃÀı£º
+å¤åˆ¶ä»£ç 
+æµ‹è¯•ç”¨ä¾‹ï¼š
 
 var origin = {
   a: "text",
@@ -83,12 +83,12 @@ var origin = {
     f: [1, 2]
   }
 }
-1.½ØÈ¡Ö¸¶¨×Ö½ÚÊıµÄ×Ö·û´®
+1.æˆªå–æŒ‡å®šå­—èŠ‚æ•°çš„å­—ç¬¦ä¸²
 /**
- * ½ØÈ¡Ö¸¶¨×Ö½ÚµÄ×Ö·û´®
- * @param str Òª½ØÈ¡µÄ×Ö·û´©
- * @param len Òª½ØÈ¡µÄ³¤¶È£¬¸ù¾İ×Ö½Ú¼ÆËã
- * @param suffix ½ØÈ¡Ç°len¸öºó£¬ÆäÓàµÄ×Ö·ûµÄÌæ»»×Ö·û£¬Ò»°ãÓÃ¡°¡­¡±
+ * æˆªå–æŒ‡å®šå­—èŠ‚çš„å­—ç¬¦ä¸²
+ * @param str è¦æˆªå–çš„å­—ç¬¦ç©¿
+ * @param len è¦æˆªå–çš„é•¿åº¦ï¼Œæ ¹æ®å­—èŠ‚è®¡ç®—
+ * @param suffix æˆªå–å‰lenä¸ªåï¼Œå…¶ä½™çš„å­—ç¬¦çš„æ›¿æ¢å­—ç¬¦ï¼Œä¸€èˆ¬ç”¨â€œâ€¦â€
  * @returns {*}
  */
 function cutString(str, len, suffix) {
@@ -110,10 +110,10 @@ function cutString(str, len, suffix) {
   }
   return str;
 }
-¸´ÖÆ´úÂë
-2.ÅĞ¶ÏÊÇ·ñÎ¢ĞÅ
+å¤åˆ¶ä»£ç 
+2.åˆ¤æ–­æ˜¯å¦å¾®ä¿¡
 /**
- * ÅĞ¶ÏÎ¢ĞÅä¯ÀÀÆ÷
+ * åˆ¤æ–­å¾®ä¿¡æµè§ˆå™¨
  * @returns {Boolean}
  */
 function isWeiXin() {
@@ -124,8 +124,8 @@ function isWeiXin() {
     return false;
   }
 }
-¸´ÖÆ´úÂë
-3.»ñÈ¡Ê±¼ä¸ñÊ½µÄ¼¸¸ö¾ÙÀı
+å¤åˆ¶ä»£ç 
+3.è·å–æ—¶é—´æ ¼å¼çš„å‡ ä¸ªä¸¾ä¾‹
 function getTimeFormat(time) {
   var date = new Date(parseInt(time) * 1000);
   var month, day, hour, min;
@@ -157,10 +157,10 @@ function getTimeFormatAll(time) {
 
   return [year, month, day].join('-') + '  ' + hour + ':' + min + ':' + second
 }
-¸´ÖÆ´úÂë
-4.»ñÈ¡×Ö·û´®×Ö½Ú³¤¶È
+å¤åˆ¶ä»£ç 
+4.è·å–å­—ç¬¦ä¸²å­—èŠ‚é•¿åº¦
 /**
- * »ñÈ¡×Ö·û´®×Ö½Ú³¤¶È
+ * è·å–å­—ç¬¦ä¸²å­—èŠ‚é•¿åº¦
  * @param {String}
  * @returns {Boolean}
  */
@@ -174,14 +174,14 @@ function checkLength(v) {
   }
   return realLength;
 }
-¸´ÖÆ´úÂë
-¸´ÖÆ´úÂë
-6.×éÖ¯½á¹¹´úÂëÖ¤ÑéÖ¤
-ÑéÖ¤¹æÔò£º
+å¤åˆ¶ä»£ç 
+å¤åˆ¶ä»£ç 
+6.ç»„ç»‡ç»“æ„ä»£ç è¯éªŒè¯
+éªŒè¯è§„åˆ™ï¼š
 
-×éÖ¯»ú¹¹´úÂëÊÇÃ¿Ò»¸ö»ú¹Ø¡¢Éç»áÍÅÌå¡¢ÆóÊÂÒµµ¥Î»ÔÚÈ«¹ú·¶Î§ÄÚÎ¨Ò»µÄ¡¢Ê¼ÖÕ²»±äµÄ·¨¶¨´úÂë±êÊ¶¡£×îĞÂÊ¹ÓÃµÄ×éÖ¯»ú¹¹´úÂëÔÚ1997Äê°ä²¼ÊµÊ©£¬ÓÉ8Î»Êı×Ö£¨»ò´óĞ´À­¶¡×ÖÄ¸£©±¾Ìå´úÂëºÍ1Î»Êı×Ö£¨»ò´óĞ´À­¶¡×ÖÄ¸£©Ğ£ÑéÂë×é³É¡£±¾Ìå´úÂë²ÉÓÃÏµÁĞ£¨¼´·ÖÇø¶Î£©Ë³Ğò±àÂë·½·¨¡£Ğ£ÑéÂë°´ÏÂÁĞ¹«Ê½¼ÆËã£º8 C9 = 11 - MOD(¡ÆCi * Wi£¬11)¡­ (2) i = 1ÆäÖĞ£ºMOD¡ª¡ª±íÊ¾ÇóÓàº¯Êı£»i¡ª¡ª±íÊ¾´úÂë×Ö·û´Ó×óµ½ÓÒÎ»ÖÃĞòºÅ£»Ci¡ª¡ª±íÊ¾µÚiÎ»ÖÃÉÏµÄ´úÂë×Ö·ûµÄÖµ£¬²ÉÓÃ¸½Â¼A¡°´úÂë×Ö·û¼¯¡±ËùÁĞ×Ö·û£»C9¡ª¡ª±íÊ¾Ğ£ÑéÂë£»Wi¡ª¡ª±íÊ¾µÚiÎ»ÖÃÉÏµÄ¼ÓÈ¨Òò×Ó£¬ÆäÊıÖµÈçÏÂ±í£ºi 1 2 3 4 5 6 7 8 Wi 3 7 9 10 5 8 4 2µ±MODº¯ÊıÖµÎª1£¨¼´C9 = 10£©Ê±£¬Ğ£ÑéÂëÓÃ×ÖÄ¸X±íÊ¾¡£
+ç»„ç»‡æœºæ„ä»£ç æ˜¯æ¯ä¸€ä¸ªæœºå…³ã€ç¤¾ä¼šå›¢ä½“ã€ä¼äº‹ä¸šå•ä½åœ¨å…¨å›½èŒƒå›´å†…å”¯ä¸€çš„ã€å§‹ç»ˆä¸å˜çš„æ³•å®šä»£ç æ ‡è¯†ã€‚æœ€æ–°ä½¿ç”¨çš„ç»„ç»‡æœºæ„ä»£ç åœ¨1997å¹´é¢å¸ƒå®æ–½ï¼Œç”±8ä½æ•°å­—ï¼ˆæˆ–å¤§å†™æ‹‰ä¸å­—æ¯ï¼‰æœ¬ä½“ä»£ç å’Œ1ä½æ•°å­—ï¼ˆæˆ–å¤§å†™æ‹‰ä¸å­—æ¯ï¼‰æ ¡éªŒç ç»„æˆã€‚æœ¬ä½“ä»£ç é‡‡ç”¨ç³»åˆ—ï¼ˆå³åˆ†åŒºæ®µï¼‰é¡ºåºç¼–ç æ–¹æ³•ã€‚æ ¡éªŒç æŒ‰ä¸‹åˆ—å…¬å¼è®¡ç®—ï¼š8 C9 = 11 - MOD(âˆ‘Ci * Wiï¼Œ11)â€¦ (2) i = 1å…¶ä¸­ï¼šMODâ€”â€”è¡¨ç¤ºæ±‚ä½™å‡½æ•°ï¼›iâ€”â€”è¡¨ç¤ºä»£ç å­—ç¬¦ä»å·¦åˆ°å³ä½ç½®åºå·ï¼›Ciâ€”â€”è¡¨ç¤ºç¬¬iä½ç½®ä¸Šçš„ä»£ç å­—ç¬¦çš„å€¼ï¼Œé‡‡ç”¨é™„å½•Aâ€œä»£ç å­—ç¬¦é›†â€æ‰€åˆ—å­—ç¬¦ï¼›C9â€”â€”è¡¨ç¤ºæ ¡éªŒç ï¼›Wiâ€”â€”è¡¨ç¤ºç¬¬iä½ç½®ä¸Šçš„åŠ æƒå› å­ï¼Œå…¶æ•°å€¼å¦‚ä¸‹è¡¨ï¼ši 1 2 3 4 5 6 7 8 Wi 3 7 9 10 5 8 4 2å½“MODå‡½æ•°å€¼ä¸º1ï¼ˆå³C9 = 10ï¼‰æ—¶ï¼Œæ ¡éªŒç ç”¨å­—æ¯Xè¡¨ç¤ºã€‚
 
-ÑéÖ¤·½·¨£º
+éªŒè¯æ–¹æ³•ï¼š
 
 checkOrgCodeValid: function(el) {
   var txtval = el.value;
@@ -207,11 +207,11 @@ checkOrgCodeValid: function(el) {
   }
   return YC9 == C9;
 }
-¸´ÖÆ´úÂë
-7.Éí·İÖ¤ºÅÑéÖ¤
+å¤åˆ¶ä»£ç 
+7.èº«ä»½è¯å·éªŒè¯
 /**
- * ÑéÖ¤Éí·İÖ¤ºÅ
- * @param el ºÅÂëÊäÈëinput
+ * éªŒè¯èº«ä»½è¯å·
+ * @param el å·ç è¾“å…¥input
  * @returns {boolean}
  */
 function checkCardNo(el) {
@@ -219,8 +219,8 @@ function checkCardNo(el) {
   var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
   return reg.test(txtval)
 }
-¸´ÖÆ´úÂë
-8.jsÕıÔòÎªurlÌí¼Óhttp±êÊ¶
+å¤åˆ¶ä»£ç 
+8.jsæ­£åˆ™ä¸ºurlæ·»åŠ httpæ ‡è¯†
 <!DOCTYPE html>
 <html>
 <head>
@@ -252,72 +252,72 @@ function checkCardNo(el) {
 </body>
 </html>
 
-¸´ÖÆ´úÂë
-9.URLÓĞĞ§ĞÔĞ£Ñé·½·¨
+å¤åˆ¶ä»£ç 
+9.URLæœ‰æ•ˆæ€§æ ¡éªŒæ–¹æ³•
 /**
- * URLÓĞĞ§ĞÔĞ£Ñé
+ * URLæœ‰æ•ˆæ€§æ ¡éªŒ
  * @param str_url
  * @returns {boolean}
  */
 function isURL(str_url) { 
-  // ÑéÖ¤url
+  // éªŒè¯url
   var strRegex = "^((https|http|ftp|rtsp|mms)?://)" + "?(([0-9a-z_!~*'().&=+$%-]+: )?[0-9a-z_!~*'().&=+$%-]+@)?" //           
-  ftpµÄuser@ + "(([0-9]{1,3}\.){3}[0-9]{1,3}" // IPĞÎÊ½µÄURL- 199.194.52.184
-  + "|" // ÔÊĞíIPºÍDOMAIN£¨ÓòÃû£©
-  + "([0-9a-z_!~*'()-]+\.)*" // ÓòÃû- www.
-  + "([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]\." // ¶ş¼¶ÓòÃû
+  ftpçš„user@ + "(([0-9]{1,3}\.){3}[0-9]{1,3}" // IPå½¢å¼çš„URL- 199.194.52.184
+  + "|" // å…è®¸IPå’ŒDOMAINï¼ˆåŸŸåï¼‰
+  + "([0-9a-z_!~*'()-]+\.)*" // åŸŸå- www.
+  + "([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]\." // äºŒçº§åŸŸå
   + "[a-z]{2,6})" // first level domain- .com or .museum
-  + "(:[0-9]{1,4})?" // ¶Ë¿Ú- :80
+  + "(:[0-9]{1,4})?" // ç«¯å£- :80
   + "((/?)|" // a slash isn't required if there is no file name
   + "(/[0-9a-z_!~*'().;?:@&=+$,%#-]+)+/?)$";
   var re = new RegExp(strRegex);
   return re.test(str_url);
 }
-// ½¨ÒéµÄÕıÔò
+// å»ºè®®çš„æ­£åˆ™
 functionisURL(str) {
   return !! str.match(/(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/g);
 }
-¸´ÖÆ´úÂë
-10.×Ô¶¨Òåjsonp·½·¨
+å¤åˆ¶ä»£ç 
+10.è‡ªå®šä¹‰jsonpæ–¹æ³•
 /**
- * ×Ô¶¨Òå·â×°jsonp·½·¨
+ * è‡ªå®šä¹‰å°è£…jsonpæ–¹æ³•
  * @param options
  */
 jsonp = function(options) {
   options = options || {};
   if (!options.url || !options.callback) {
-    throw new Error("²ÎÊı²»ºÏ·¨");
+    throw new Error("å‚æ•°ä¸åˆæ³•");
   }
-  //´´½¨ script ±êÇ©²¢¼ÓÈëµ½Ò³ÃæÖĞ
+  //åˆ›å»º script æ ‡ç­¾å¹¶åŠ å…¥åˆ°é¡µé¢ä¸­
   var callbackName = ('jsonp_' + Math.random()).replace(".", "");
   var oHead = document.getElementsByTagName('head')[0];
   options.data[options.callback] = callbackName;
   var params = formatParams(options.data);
   var oS = document.createElement('script');
   oHead.appendChild(oS);
-  //´´½¨jsonp»Øµ÷º¯Êı
+  //åˆ›å»ºjsonpå›è°ƒå‡½æ•°
   window[callbackName] = function(json) {
     oHead.removeChild(oS);
     clearTimeout(oS.timer);
     window[callbackName] = null;
     options.success && options.success(json);
   };
-  //·¢ËÍÇëÇó
+  //å‘é€è¯·æ±‚
   oS.src = options.url + '?' + params;
-  //³¬Ê±´¦Àí
+  //è¶…æ—¶å¤„ç†
   if (options.time) {
     oS.timer = setTimeout(function() {
       window[callbackName] = null;
       oHead.removeChild(oS);
       options.fail && options.fail({
-        message: "³¬Ê±"
+        message: "è¶…æ—¶"
       });
     },
     time);
   }
 };
 /**
- * ¸ñÊ½»¯²ÎÊı
+ * æ ¼å¼åŒ–å‚æ•°
  * @param data
  * @returns {string}
  */
@@ -328,16 +328,16 @@ formatParams = function(data) {
   }
   return arr.join('&');
 }
-¸´ÖÆ´úÂë
-11.cookie²Ù×÷
-//Ğ´cookies
+å¤åˆ¶ä»£ç 
+11.cookieæ“ä½œ
+//å†™cookies
 setCookie = function(name, value, time) {
   var strsec = getsec(time);
   var exp = new Date();
   exp.setTime(exp.getTime() + strsec * 1);
   document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
 }
-//cookie²Ù×÷¸¨Öúº¯Êı
+//cookieæ“ä½œè¾…åŠ©å‡½æ•°
 getsec = function(str) {
   var str1 = str.substring(1, str.length) * 1;
   var str2 = str.substring(0, 1);
@@ -349,31 +349,31 @@ getsec = function(str) {
     return str1 * 24 * 60 * 60 * 1000;
   }
 }
-//¶ÁÈ¡cookies
+//è¯»å–cookies
 getCookie = function(name) {
   var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
   if (arr = document.cookie.match(reg)) return (arr[2]);
   else return null;
 }
 
-//É¾³ıcookies
+//åˆ é™¤cookies
 delCookie = function(name) {
   var exp = new Date();
   exp.setTime(exp.getTime() - 1);
   var cval = getCookie(name);
   if (cval != null) document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
 }
-¸´ÖÆ´úÂë
-12.Éú³ÉËæ»ú×Ö·û´® (¿ÉÖ¸¶¨³¤¶È)
+å¤åˆ¶ä»£ç 
+12.ç”Ÿæˆéšæœºå­—ç¬¦ä¸² (å¯æŒ‡å®šé•¿åº¦)
 /**
- * Éú³ÉËæ»ú×Ö·û´®(¿ÉÖ¸¶¨³¤¶È)
+ * ç”Ÿæˆéšæœºå­—ç¬¦ä¸²(å¯æŒ‡å®šé•¿åº¦)
  * @param len
  * @returns {string}
  */
 randomString = function(len) {
   len = len || 8;
   var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
-  /****Ä¬ÈÏÈ¥µôÁËÈİÒ×»ìÏıµÄ×Ö·ûoOLl,9gq,Vv,Uu,I1****/
+  /****é»˜è®¤å»æ‰äº†å®¹æ˜“æ··æ·†çš„å­—ç¬¦oOLl,9gq,Vv,Uu,I1****/
   var maxPos = $chars.length;
   var pwd = '';
   for (var i = 0; i < len; i++) {
@@ -381,32 +381,32 @@ randomString = function(len) {
   }
   return pwd;
 }
-¸´ÖÆ´úÂë
-13.ä¯ÀÀÆ÷ÅĞ¶Ï
+å¤åˆ¶ä»£ç 
+13.æµè§ˆå™¨åˆ¤æ–­
 function parseUA() {
   var u = navigator.userAgent;
   var u2 = navigator.userAgent.toLowerCase();
-  return { //ÒÆ¶¯ÖÕ¶Ëä¯ÀÀÆ÷°æ±¾ĞÅÏ¢
+  return { //ç§»åŠ¨ç»ˆç«¯æµè§ˆå™¨ç‰ˆæœ¬ä¿¡æ¯
     trident: u.indexOf('Trident') > -1,
-    //IEÄÚºË
+    //IEå†…æ ¸
     presto: u.indexOf('Presto') > -1,
-    //operaÄÚºË
+    //operaå†…æ ¸
     webKit: u.indexOf('AppleWebKit') > -1,
-    //Æ»¹û¡¢¹È¸èÄÚºË
+    //è‹¹æœã€è°·æ­Œå†…æ ¸
     gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
-    //»ğºüÄÚºË
+    //ç«ç‹å†…æ ¸
     mobile: !!u.match(/AppleWebKit.*Mobile.*/),
-    //ÊÇ·ñÎªÒÆ¶¯ÖÕ¶Ë
+    //æ˜¯å¦ä¸ºç§»åŠ¨ç»ˆç«¯
     ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
-    //iosÖÕ¶Ë
+    //iosç»ˆç«¯
     android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
-    //androidÖÕ¶Ë»òucä¯ÀÀÆ÷
+    //androidç»ˆç«¯æˆ–ucæµè§ˆå™¨
     iPhone: u.indexOf('iPhone') > -1,
-    //ÊÇ·ñÎªiPhone»òÕßQQHDä¯ÀÀÆ÷
+    //æ˜¯å¦ä¸ºiPhoneæˆ–è€…QQHDæµè§ˆå™¨
     iPad: u.indexOf('iPad') > -1,
-    //ÊÇ·ñiPad
+    //æ˜¯å¦iPad
     webApp: u.indexOf('Safari') == -1,
-    //ÊÇ·ñwebÓ¦¸Ã³ÌĞò£¬Ã»ÓĞÍ·²¿Óëµ×²¿
+    //æ˜¯å¦webåº”è¯¥ç¨‹åºï¼Œæ²¡æœ‰å¤´éƒ¨ä¸åº•éƒ¨
     iosv: u.substr(u.indexOf('iPhone OS') + 9, 3),
     weixin: u2.match(/MicroMessenger/i) == "micromessenger",
     ali: u.indexOf('AliApp') > -1,
@@ -417,13 +417,13 @@ if (!ua.mobile) {
   location.href = './pc.html';
 }
 
-¸´ÖÆ´úÂë
-14.RemÒÆ¶¯¶ËÊÊÅä
+å¤åˆ¶ä»£ç 
+14.Remç§»åŠ¨ç«¯é€‚é…
 var rem = {
   baseRem: 40,
-  // »ù×¼×ÖºÅ£¬°´ÕÕiphone6Ó¦¸ÃÎª20£¬´Ë´¦À©´ó2±¶£¬±ãÓÚ¼ÆËã
+  // åŸºå‡†å­—å·ï¼ŒæŒ‰ç…§iphone6åº”è¯¥ä¸º20ï¼Œæ­¤å¤„æ‰©å¤§2å€ï¼Œä¾¿äºè®¡ç®—
   baseWidth: 750,
-  // »ù×¼³ß´ç¿í£¬´Ë´¦ÊÇ°´ÕÕihpone6µÄ³ß´ç
+  // åŸºå‡†å°ºå¯¸å®½ï¼Œæ­¤å¤„æ˜¯æŒ‰ç…§ihpone6çš„å°ºå¯¸
   rootEle: document.getElementsByTagName("html")[0],
   initHandle: function() {
     this.setRemHandle();
@@ -445,10 +445,10 @@ var rem = {
   }
 };
 rem.initHandle();
-¸´ÖÆ´úÂë
-15.»ñÈ¡urlºó²ÎÊı
+å¤åˆ¶ä»£ç 
+15.è·å–urlåå‚æ•°
 function GetRequest() {
-  var url = location.search; //»ñÈ¡urlÖĞ"?"·ûºóµÄ×Ö´®
+  var url = location.search; //è·å–urlä¸­"?"ç¬¦åçš„å­—ä¸²
   var theRequest = new Object();
   if (url.indexOf("?") != -1) {
     var str = url.substr(1);
@@ -459,8 +459,8 @@ function GetRequest() {
   }
   return theRequest;
 }
-¸´ÖÆ´úÂë
-16.¶¯Ì¬¼ÓÔØJS
+å¤åˆ¶ä»£ç 
+16.åŠ¨æ€åŠ è½½JS
 function loadScript(url, callback) {
   var script = document.createElement("script");
   script.type = "text/";
@@ -481,8 +481,8 @@ function loadScript(url, callback) {
   script.src = url;
   document.body.appendChild(script);
 }
-¸´ÖÆ´úÂë
-17.Éú³ÉËæ»úÑÕÉ«Öµ
+å¤åˆ¶ä»£ç 
+17.ç”Ÿæˆéšæœºé¢œè‰²å€¼
 function getRandomColor () {
   const rgb = []
   for (let i = 0 ; i < 3; ++i){
@@ -492,7 +492,7 @@ function getRandomColor () {
   }
   return '#' + rgb.join('')
 }
-//È¥µôÊı×éÖØ¸´µÄÖµ
+//å»æ‰æ•°ç»„é‡å¤çš„å€¼
 let unique = function(arr) {  
     let hashTable = {};
     let data = [];
@@ -504,7 +504,7 @@ let unique = function(arr) {
         }
     return data
 }
-//ÕÒÊı×éÖĞ×î´ó²îÖµ
+//æ‰¾æ•°ç»„ä¸­æœ€å¤§å·®å€¼
 function getMaxProfit(arr) {
 
     var minPrice = arr[0];
@@ -524,7 +524,7 @@ function getMaxProfit(arr) {
 }
 
 
-//Ëæ»úÉú³ÉÖ¸ÖÆ¶¨³¤¶ÈµÄ×Ö·û´®
+//éšæœºç”ŸæˆæŒ‡åˆ¶å®šé•¿åº¦çš„å­—ç¬¦ä¸²
 function randomString(n) {  
   let str = 'abcdefghijklmnopqrstuvwxyz9876543210';
   let tmp = '',

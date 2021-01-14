@@ -1,90 +1,83 @@
-
-
-5.对象克隆、深拷贝
 /**
  * 对象克隆&深拷贝
  * @param obj
  * @returns {{}}
  */
-function clone(obj){
-    if(typeof obj !== "object"){
-        return obj;
+{
+  function _cloneDeep(obj) {
+    // 传递进来的如果不是对象，则无需处理，直接返回原始的值即可（一般Symbol和Function也不会进行处理的）
+    if (obj === null) return null;
+    if (typeof obj !== "object") return obj;
+  
+    // 过滤掉特殊的对象（正则对象或者日期对象）：直接使用原始值创建当前类的一个新的实例即可，这样克隆后的是新的实例，但是值和之前一样
+    if (obj instanceof RegExp) return new RegExp(obj);
+    if (obj instanceof Date) return new Date(obj);
+  
+    // 如果传递的是数组或者对象，我们需要创建一个新的数组或者对象，用来存储原始的数据
+    // obj.constructor 获取当前值的构造器（Array/Object）
+    let cloneObj = new obj.constructor;
+    for (let key in obj) {
+      // 循环原始数据中的每一项，把每一项赋值给新的对象
+      if (!obj.hasOwnProperty(key)) break;
+      cloneObj[key] = _cloneDeep(obj[key]);
     }
-    let newobj;
-    if(obj instanceof Array){
-        newobj = [];
-    }else{
-        newobj = {};
-    }
-    for(let key in obj){
-        if(typeof obj[key] !== "object"){
-            newobj[key] = obj[key]
-        }else{
-            newobj[key] = clone(obj[key]);
-            
+    return cloneObj;
+  }
+
+  //2个对象间深拷贝
+  function _assignDeep(obj1, obj2) {
+    // 先把OBJ1中的每一项深度克隆一份赋值给新的对象
+    let obj = _cloneDeep(obj1);
+
+    // 再拿OBJ2替换OBJ中的每一项
+    for (let key in obj2) {
+        if (!obj2.hasOwnProperty(key)) break;
+        let v2 = obj2[key],
+            v1 = obj[key];
+        // 如果OBJ2遍历的当前项是个对象，并且对应的OBJ这项也是一个对象，此时不能直接替换，需要把两个对象重新合并一下，合并后的最新结果赋值给新对象中的这一项
+        if (typeof v1 === "object" && typeof v2 === "object") {
+            obj[key] = _assignDeep(v1, v2);
+            continue;
         }
+        obj[key] = v2;
     }
-    return newobj;
+    return obj;
+  }
+  
+  /**
+   * 对象克隆&深拷贝
+   * @param obj
+   * @returns {{}}
+   */
+  function clone(obj) {
+    // Handle the 3 simple types, and null or undefined
+    if (null == obj || "object" != typeof obj) return obj;
+    // Handle Date
+    if (obj instanceof Date) {
+      var copy = new Date();
+      copy.setTime(obj.getTime());
+      return copy;
+    }
+    // Handle Array
+    if (obj instanceof Array) {
+      var copy = [];
+      for (var i = 0,len = obj.length; i < len; ++i) {
+        copy[i] = clone(obj[i]);
+      }
+      return copy;
+    }
+    // Handle Object
+    if (obj instanceof Object) {
+      var copy = {};
+      for (var attr in obj) {
+        if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
+      }
+      return copy;
+    }
+    throw new Error("Unable to copy obj! Its type isn't supported.");
+  }
 }
 
-function cloneObj(obj) {
-  var newO = {};
-  if (obj instanceof Array) {
-    newO = [];
-  }
-  for (var key in obj) {
-    var val = obj[key];
-    newO[key] = typeof val === 'object' ? arguments.callee(val) : val;
-  }
-  return newO;
-};
-复制代码
-克隆拷贝增强版
-
-/**
- * 对象克隆&深拷贝
- * @param obj
- * @returns {{}}
- */
-function clone(obj) {
-  // Handle the 3 simple types, and null or undefined
-  if (null == obj || "object" != typeof obj) return obj;
-  // Handle Date
-  if (obj instanceof Date) {
-    var copy = new Date();
-    copy.setTime(obj.getTime());
-    return copy;
-  }
-  // Handle Array
-  if (obj instanceof Array) {
-    var copy = [];
-    for (var i = 0,len = obj.length; i < len; ++i) {
-      copy[i] = clone(obj[i]);
-    }
-    return copy;
-  }
-  // Handle Object
-  if (obj instanceof Object) {
-    var copy = {};
-    for (var attr in obj) {
-      if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
-    }
-    return copy;
-  }
-  throw new Error("Unable to copy obj! Its type isn't supported.");
-}
-复制代码
-测试用例：
-
-var origin = {
-  a: "text",
-  b: null,
-  c: undefined,
-  e: {
-    f: [1, 2]
-  }
-}
-1.截取指定字节数的字符串
 /**
  * 截取指定字节的字符串
  * @param str 要截取的字符穿
@@ -111,10 +104,9 @@ function cutString(str, len, suffix) {
   }
   return str;
 }
-复制代码
-2.判断是否微信
+
 /**
- * 判断微信浏览器
+ * 2.判断微信浏览器
  * @returns {Boolean}
  */
 function isWeiXin() {
@@ -125,8 +117,8 @@ function isWeiXin() {
     return false;
   }
 }
-复制代码
-3.获取时间格式的几个举例
+
+// 3.获取时间格式的几个举例
 function getTimeFormat(time) {
   var date = new Date(parseInt(time) * 1000);
   var month, day, hour, min;
@@ -158,8 +150,6 @@ function getTimeFormatAll(time) {
 
   return [year, month, day].join('-') + '  ' + hour + ':' + min + ':' + second
 }
-复制代码
-4.获取字符串字节长度
 /**
  * 获取字符串字节长度
  * @param {String}
@@ -175,8 +165,6 @@ function checkLength(v) {
   }
   return realLength;
 }
-复制代码
-复制代码
 6.组织结构代码证验证
 验证规则：
 
@@ -208,8 +196,6 @@ checkOrgCodeValid: function(el) {
   }
   return YC9 == C9;
 }
-复制代码
-7.身份证号验证
 /**
  * 验证身份证号
  * @param el 号码输入input
@@ -220,8 +206,7 @@ function checkCardNo(el) {
   var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
   return reg.test(txtval)
 }
-复制代码
-8.js正则为url添加http标识
+// 8.js正则为url添加http标识
 <!DOCTYPE html>
 <html>
 <head>
@@ -253,7 +238,6 @@ function checkCardNo(el) {
 </body>
 </html>
 
-复制代码
 9.URL有效性校验方法
 /**
  * URL有效性校验
@@ -278,7 +262,7 @@ function isURL(str_url) {
 functionisURL(str) {
   return !! str.match(/(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/g);
 }
-复制代码
+
 10.自定义jsonp方法
 /**
  * 自定义封装jsonp方法
@@ -329,7 +313,7 @@ formatParams = function(data) {
   }
   return arr.join('&');
 }
-复制代码
+
 11.cookie操作
 //写cookies
 setCookie = function(name, value, time) {
@@ -364,7 +348,7 @@ delCookie = function(name) {
   var cval = getCookie(name);
   if (cval != null) document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
 }
-复制代码
+
 12.生成随机字符串 (可指定长度)
 /**
  * 生成随机字符串(可指定长度)
@@ -382,7 +366,7 @@ randomString = function(len) {
   }
   return pwd;
 }
-复制代码
+
 13.浏览器判断
 function parseUA() {
   var u = navigator.userAgent;
@@ -418,7 +402,7 @@ if (!ua.mobile) {
   location.href = './pc.html';
 }
 
-复制代码
+
 14.Rem移动端适配
 var rem = {
   baseRem: 40,
@@ -446,7 +430,7 @@ var rem = {
   }
 };
 rem.initHandle();
-复制代码
+
 15.获取url后参数
 function GetRequest() {
   var url = location.search; //获取url中"?"符后的字串
@@ -460,7 +444,7 @@ function GetRequest() {
   }
   return theRequest;
 }
-复制代码
+
 16.动态加载JS
 function loadScript(url, callback) {
   var script = document.createElement("script");
@@ -482,7 +466,7 @@ function loadScript(url, callback) {
   script.src = url;
   document.body.appendChild(script);
 }
-复制代码
+
 17.生成随机颜色值
 function getRandomColor () {
   const rgb = []
